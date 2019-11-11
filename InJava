@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class runner {
+
+public static String reverseWordWise(String input) {
+		// Write your code here
+        String ans="";
+        String reverse="";
+        for(int i=0;i<input.length();i++){
+            
+            reverse=input.charAt(i)+reverse+" ";
+        }
+        
+        ans=ans+reverse+"";
+        int startWord=0,endWord;
+        int j=0;
+         String p="";
+        for(;j<ans.length();j++){
+           
+            if(ans.charAt(j)==' '){
+               endWord=j-1;
+               String rev="";     
+               for(int i=startWord;i<=endWord;i++){
+                   
+                   rev=ans.charAt(i)+rev;
+               } 
+                p+=rev+" ";
+                startWord=j+1;
+                
+            }
+            
+        }
+        endWord=j-1;
+        String rev="";
+        for(int i=startWord;i<=endWord;j++){
+            rev=ans.charAt(i)+rev;
+        }
+         p+=rev;
+        
+        return p;
+        
+       
+          //return ans;
+	}
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		String input = s.nextLine();
+		System.out.println(reverseWordWise(input));
+	}
+}
